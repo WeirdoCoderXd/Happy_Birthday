@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 41st Birthday! 🌻</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background: linear-gradient(135deg, #8B7355 0%, #A0522D 25%, #CD853F 50%, #F4E4BC 100%);
+            min-height: 100vh;
+            color: #3E2723;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(244, 228, 188, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(139, 115, 85, 0.3);
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(62, 39, 35, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-tab {
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: #6D4C41;
+            border: 2px solid transparent;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .nav-tab.active {
+            background: linear-gradient(45deg, #8D6E63, #A0522D);
+            color: #F4E4BC;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(141, 110, 99, 0.4);
+        }
+
+        .nav-tab:hover:not(.active) {
+            background: rgba(141, 110, 99, 0.1);
+            border-color: rgba(141, 110, 99, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .main-content {
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+            padding: 40px 20px;
+        }
+
+        .tab-content {
+            display: none;
+            max-width: 1000px;
+            margin: 0 auto;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-section {
+            background: rgba(244, 228, 188, 0.95);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(62, 39, 35, 0.15);
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(141, 110, 99, 0.2);
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #8D6E63, #A0522D, #D4A574);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: #6D4C41;
+            margin-bottom: 30px;
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .age-highlight {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 700;
+            color: #8D6E63;
+            margin: 30px 0;
+            text-shadow: 0 0 20px rgba(141, 110, 99, 0.3);
+        }
+
+        .card {
+            background: rgba(244, 228, 188, 0.95);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(62, 39, 35, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(141, 110, 99, 0.2);
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #6D4C41;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .wishes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .wish-card {
+            background: linear-gradient(135deg, #8D6E63 0%, #A0522D 100%);
+            color: #F4E4BC;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(141, 110, 99, 0.3);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(244, 228, 188, 0.2);
+        }
+
+        .wish-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .wish-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .wish-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .quote-section {
+            text-align: center;
+            padding: 60px 40px;
+            background: rgba(141, 110, 99, 0.1);
+            border-radius: 20px;
+            margin: 30px 0;
+            border: 1px solid rgba(141, 110, 99, 0.2);
+        }
+
+        .quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-style: italic;
+            color: #6D4C41;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .quote-author {
+            font-size: 1.2rem;
+            color: #8D6E63;
+        }
+
+        .celebration-button {
+            background: linear-gradient(45deg, #8D6E63, #A0522D);
+            color: #F4E4BC;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 20px 10px;
+            box-shadow: 0 5px 20px rgba(141, 110, 99, 0.3);
+            font-weight: 500;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .celebration-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(141, 110, 99, 0.4);
+        }
+
+        .floating-elements {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-element {
+            position: absolute;
+            font-size: 1.5rem;
+            color: rgba(244, 228, 188, 0.6);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10%, 90% {
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(50vh) rotate(180deg);
+            }
+        }
+
+        .contact-info {
+            text-align: center;
+            padding: 40px;
+            background: rgba(244, 228, 188, 0.95);
+            border-radius: 20px;
+            margin: 30px 0;
+            border: 1px solid rgba(141, 110, 99, 0.2);
+        }
+
+        .contact-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #5D4037;
+        }
+
+        /* Gift Box - Earth tones */
+        .gift-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 40px 0;
+            min-height: 400px;
+        }
+
+        .gift-box {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease;
+        }
+
+        .gift-box:hover {
+            transform: scale(1.05) rotateY(5deg);
+        }
+
+        .gift-box.opened .box-lid {
+            transform: rotateX(-100deg) translateZ(100px);
+        }
+
+        .gift-box.opened .bow {
+            transform: translateY(-50px) rotateX(-100deg);
+            opacity: 0.3;
+        }
+
+        .gift-box.opened .ribbon-vertical,
+        .gift-box.opened .ribbon-horizontal {
+            opacity: 0.3;
+        }
+
+        .gift-box.opened .gift-content {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+
+        .box-base {
+            position: absolute;
+            width: 200px;
+            height: 150px;
+            background: linear-gradient(135deg, #8D6E63, #A0522D);
+            border: 3px solid #F4E4BC;
+            border-radius: 15px;
+            bottom: 0;
+            box-shadow: 
+                0 10px 30px rgba(141, 110, 99, 0.4),
+                inset 0 2px 10px rgba(244, 228, 188, 0.3);
+        }
+
+        .box-lid {
+            position: absolute;
+            width: 206px;
+            height: 80px;
+            background: linear-gradient(135deg, #A0522D, #D4A574);
+            border: 3px solid #F4E4BC;
+            border-radius: 15px 15px 5px 5px;
+            top: 45px;
+            left: -3px;
+            transform-origin: bottom;
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 
+                0 5px 20px rgba(160, 82, 45, 0.4),
+                inset 0 2px 10px rgba(244, 228, 188, 0.4);
+        }
+
+        .ribbon-vertical, .ribbon-horizontal {
+            background: linear-gradient(135deg, #D4A574, #F4E4BC);
+            box-shadow: 
+                inset 0 2px 5px rgba(244, 228, 188, 0.5),
+                0 2px 10px rgba(212, 165, 116, 0.3);
+        }
+
+        .ribbon-vertical {
+            position: absolute;
+            width: 20px;
+            height: 200px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+            z-index: 5;
+            transition: opacity 0.8s ease;
+        }
+
+        .ribbon-horizontal {
+            position: absolute;
+            width: 206px;
+            height: 20px;
+            top: 90px;
+            left: -3px;
+            border-radius: 10px;
+            z-index: 4;
+            transition: opacity 0.8s ease;
+        }
+
+        .bow {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            transition: all 0.8s ease;
+        }
+
+        .bow-left, .bow-right {
+            width: 25px;
+            height: 20px;
+            background: linear-gradient(135deg, #8D6E63, #A0522D);
+            border-radius: 50% 10% 50% 10%;
+            display: inline-block;
+            position: relative;
+            box-shadow: 
+                0 2px 10px rgba(141, 110, 99, 0.4),
+                inset 0 1px 3px rgba(244, 228, 188, 0.3);
+        }
+
+        .bow-left {
+            transform: rotate(-45deg);
+            margin-right: -10px;
+        }
+
+        .bow-right {
+            transform: rotate(45deg);
+            margin-left: -10px;
+        }
+
+        .bow-center {
+            position: absolute;
+            width: 15px;
+            height: 20px;
+            background: linear-gradient(135deg, #6D4C41, #8D6E63);
+            border-radius: 30%;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 
+                0 2px 8px rgba(109, 76, 65, 0.4),
+                inset 0 1px 3px rgba(244, 228, 188, 0.3);
+        }
+
+        .gift-content {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(244, 228, 188, 0.98);
+            border-radius: 20px;
+            padding: 30px;
+            width: 350px;
+            box-shadow: 0 20px 50px rgba(62, 39, 35, 0.15);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(141, 110, 99, 0.2);
+        }
+
+        .gift-message {
+            text-align: center;
+        }
+
+        .gift-heart {
+            font-size: 3rem;
+            animation: heartBeat 1.5s ease-in-out infinite;
+            margin-bottom: 15px;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .gift-message h3 {
+            color: #6D4C41;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .gift-message > p {
+            color: #5D4037;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .gift-wishes {
+            background: linear-gradient(135deg, #A0522D, #D4A574);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid rgba(141, 110, 99, 0.2);
+        }
+
+        .gift-wishes p {
+            color: #F4E4BC;
+            font-size: 1.1rem;
+            margin: 8px 0;
+            font-weight: 500;
+            text-shadow: 0 1px 3px rgba(62, 39, 35, 0.2);
+        }
+
+        .signature {
+            color: #6D4C41;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(141, 110, 99, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(141, 110, 99, 0.3);
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Virtual Card */
+        .virtual-card {
+            perspective: 1000px;
+            margin: 40px 0;
+        }
+
+        .card-3d {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            height: 400px;
+            cursor: pointer;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .card-3d.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(62, 39, 35, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .card-front {
+            background: linear-gradient(135deg, #8D6E63, #A0522D, #D4A574);
+            color: #F4E4BC;
+        }
+
+        .card-back {
+            background: rgba(244, 228, 188, 0.98);
+            color: #6D4C41;
+            transform: rotateY(180deg);
+            border: 2px solid rgba(141, 110, 99, 0.2);
+        }
+
+        .card-front h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(62, 39, 35, 0.3);
+        }
+
+        .card-front p {
+            font-size: 1.3rem;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .card-back h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #6D4C41;
+        }
+
+        .card-back p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        /* Poem Section */
+        .poem-section {
+            background: rgba(244, 228, 188, 0.95);
+            border-radius: 20px;
+            padding: 50px 40px;
+            margin: 30px 0;
+            text-align: center;
+            border: 1px solid rgba(141, 110, 99, 0.2);
+            box-shadow: 0 10px 30px rgba(62, 39, 35, 0.1);
+        }
+
+        .poem {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            line-height: 1.8;
+            color: #6D4C41;
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .poem-line {
+            margin: 10px 0;
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: poemAppear 0.8s ease-out forwards;
+        }
+
+        .poem-line:nth-child(1) { animation-delay: 0.2s; }
+        .poem-line:nth-child(2) { animation-delay: 0.4s; }
+        .poem-line:nth-child(3) { animation-delay: 0.6s; }
+        .poem-line:nth-child(4) { animation-delay: 0.8s; }
+        .poem-line:nth-child(5) { animation-delay: 1s; }
+        .poem-line:nth-child(6) { animation-delay: 1.2s; }
+        .poem-line:nth-child(7) { animation-delay: 1.4s; }
+        .poem-line:nth-child(8) { animation-delay: 1.6s; }
+
+        @keyframes poemAppear {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #8D6E63, #A0522D);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            background: rgba(244, 228, 188, 0.95);
+            padding: 25px;
+            border-radius: 15px;
+            width: 45%;
+            box-shadow: 0 5px 20px rgba(62, 39, 35, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(141, 110, 99, 0.2);
+        }
+
+        .timeline-year {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #6D4C41;
+            margin-bottom: 10px;
+        }
+
+        .timeline-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #5D4037;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: #A0522D;
+            border: 4px solid #F4E4BC;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            top: 25px;
+            box-shadow: 0 0 0 4px rgba(160, 82, 45, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .age-highlight {
+                font-size: 3.5rem;
+            }
+            .nav-tabs {
+                gap: 10px;
+            }
+            .nav-tab {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+            .timeline::before {
+                left: 20px;
+            }
+            .timeline-item {
+                flex-direction: row !important;
+                margin-left: 40px;
+            }
+            .timeline-content {
+                width: 100%;
+            }
+            .timeline-marker {
+                left: 20px;
+            }
+            .gift-box {
+                width: 150px;
+                height: 150px;
+            }
+            .box-base {
+                width: 150px;
+                height: 120px;
+            }
+            .box-lid {
+                width: 156px;
+                height: 60px;
+                left: -3px;
+                top: 35px;
+            }
+            .ribbon-vertical {
+                width: 15px;
+                height: 150px;
+            }
+            .ribbon-horizontal {
+                width: 156px;
+                height: 15px;
+                top: 67px;
+            }
+            .bow {
+                top: 15px;
+            }
+            .bow-left, .bow-right {
+                width: 20px;
+                height: 15px;
+            }
+            .bow-center {
+                width: 12px;
+                height: 15px;
+            }
+            .gift-content {
+                width: 280px;
+                padding: 20px;
+                top: -30px;
+            }
+            .card-face {
+                padding: 25px;
+            }
+            .card-front h2 {
+                font-size: 2rem;
+            }
+            .card-front p {
+                font-size: 1.1rem;
+            }
+            .poem {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-tabs">
+                <li class="nav-tab active" data-tab="congratulations">🌻 Birthday Wishes</li>
+                <li class="nav-tab" data-tab="wishes">💝 Blessings</li>
+                <li class="nav-tab" data-tab="gift">🎁 Gift</li>
+                <li class="nav-tab" data-tab="poem">📜 Poetry</li>
+                <li class="nav-tab" data-tab="card">💌 Card</li>
+                <li class="nav-tab" data-tab="timeline">⭐ Achievements</li>
+                <li class="nav-tab" data-tab="contact">👑Happy </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="floating-elements" id="floatingElements"></div>
+
+    <main class="main-content">
+       <!-- Birthday Wishes -->
+<div id="congratulations" class="tab-content active">
+    <div class="hero-section">
+        <h1 class="hero-title">Happy Birthday!</h1>
+        <p class="hero-subtitle">Dear Latoya</p>
+        <div class="age-highlight">41</div>
+        <p style="font-size: 1.4rem; color: #5D4037; line-height: 1.8; max-width: 800px; margin: 0 auto;">
+            Today we celebrate this wonderful day and share warm wishes with you.  
+            Your kindness, care, and cheerful spirit brighten every moment and make life happier for everyone around.
+            Please forgive me if I overstep, but I would be honored to extend my congratulations on your special day ma'am!
+        </p>
+        <button class="celebration-button" onclick="startCelebration()">🌻 Celebrate </button>
+    </div>
+
+    <div class="quote-section">
+        <div class="quote">
+            "On this very special day, I would also like to ask, with the utmost respect, if I may hope to become part of your family as the boyfriend and future husband of your wonderful daughter💐."
+        </div>
+        <div class="quote-author">— this website a small gift from Raymond 😊
+</div>
+    </div>
+</div>
+
+
+        <!-- Blessings -->
+<div id="wishes" class="tab-content">
+    <div class="card">
+        <h2 class="card-title"> Heartfelt Wishes</h2>
+        <div class="wishes-grid">
+            <div class="wish-card">
+                <div class="wish-icon">🌻</div>
+                <div class="wish-text">
+                    May you enjoy vibrant health and endless energy to embrace every new day
+                </div>
+            </div>
+            <div class="wish-card">
+                <div class="wish-icon">🌿</div>
+                <div class="wish-text">
+                    Gentle love and kind connections that bring comfort and strength
+                </div>
+            </div>
+            <div class="wish-card">
+                <div class="wish-icon">✨</div>
+                <div class="wish-text">
+                    Deep happiness and joy that shine from within like morning sunlight
+                </div>
+            </div>
+            <div class="wish-card">
+                <div class="wish-icon">🎯</div>
+                <div class="wish-text">
+                    Fulfillment of cherished dreams and exciting new opportunities
+                </div>
+            </div>
+            <div class="wish-card">
+                <div class="wish-icon">🏡</div>
+                <div class="wish-text">
+                    A life filled with warmth, comfort, and peaceful moments
+                </div>
+            </div>
+            <div class="wish-card">
+                <div class="wish-icon">🦋</div>
+                <div class="wish-text">
+                    Inspiring discoveries, uplifting encounters, and unforgettable adventures
+                </div>
+            </div>
+            <div class="wish-card">
+                <div class="wish-icon">💞</div>
+                <div class="wish-text">
+                    In the future we will be one family, united by love, care, and shared happiness
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <!-- Gift -->
+        <div id="gift" class="tab-content">
+            <div class="card">
+                <h2 class="card-title">A Special Gift for You</h2>
+                <p style="text-align: center; color: #5D4037; font-size: 1.2rem; margin-bottom: 40px;">
+                    Click on the elegant gift box to open your present 🎁
+                </p>
+                
+                <div class="gift-container">
+                    <div class="gift-box" id="giftBox">
+                        <!-- Ribbon -->
+                        <div class="ribbon-vertical"></div>
+                        <div class="ribbon-horizontal"></div>
+                        <div class="bow">
+                            <div class="bow-left"></div>
+                            <div class="bow-right"></div>
+                            <div class="bow-center"></div>
+                        </div>
+                        
+                        <!-- Box lid -->
+                        <div class="box-lid"></div>
+                        
+                        <!-- Box base -->
+                        <div class="box-base"></div>
+                        
+<!-- Gift content -->
+<div class="gift-content" id="giftContent">
+    <div class="gift-message">
+        <div class="gift-heart">🌻</div>
+        <h3>A Special Birthday Surprise!</h3>
+        <p>This page was created as a small token of warm wishes and heartfelt respect on your special day.</p>
+        <div class="gift-wishes">
+            <p>🌻 Wishing you good health and happiness</p>
+            <p>🌿 May your cherished dreams come true</p>
+            <p>✨ Joy and bright moments in every new day</p>
+        </div>
+        <div class="signature">
+            With warmest regards and best wishes 💖
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+<div style="text-align: center; margin-top: 30px;">
+    <button class="celebration-button" onclick="resetGift()">🔄 Close the gift box</button>
+</div>
+</div>
+</div>
+
+
+     <!-- Poetry -->
+<div id="poem" class="tab-content">
+    <div class="poem-section">
+        <h2 class="card-title">Poetic Lines for You</h2>
+        <div class="poem">
+            <div class="poem-line">Like sunflowers turning toward the morning light,</div>
+            <div class="poem-line">May each new day shine warm and bright</div>
+            <div class="poem-line">Forty one years of wisdom and grace </div>
+            <div class="poem-line">A radiant spirit time cannot erase </div>
+            <br>
+            <div class="poem-line">May laughter echo where your footsteps fall </div>
+            <div class="poem-line">And joy surround you, embracing all </div>
+            <div class="poem-line">Today we honor the light you bring </div>
+            <div class="poem-line">A heart that inspires, a soul that sings </div>
+        </div>
+    </div>
+</div>
+
+
+        <!-- Virtual Card -->
+<div id="card" class="tab-content">
+    <div class="card">
+        <h2 class="card-title">Virtual Greeting Card</h2>
+        <p style="text-align: center; color: #5D4037; margin-bottom: 30px;">
+            Click on the card to flip it over
+        </p>
+
+        <div class="virtual-card">
+            <div class="card-3d" id="virtualCard">
+                <div class="card-face card-front">
+                    <h2>Happy 41st Birthday!</h2>
+                    <p>🌻</p>
+                    <p>Dear Ma’am,<br>
+                    click to read<br>
+                    the message</p>
+                </div>
+                <div class="card-face card-back">
+                    <h3>Birthday Wishes:</h3>
+                    <p>May this special day bring you joy and warmth.</p>
+                    <p>Wishing you good health, happiness, and many bright moments ahead.</p>
+                    <p>May every new year of life be filled with pleasant surprises and beautiful memories.</p>
+                    <p><strong>Happy 41st Birthday!</strong></p>
+                    <p>🌻💖🌻</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+       <!-- Achievements -->
+<div id="timeline" class="tab-content">
+    <div class="card">
+        <h2 class="card-title">Your Life Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">Today</div>
+                    <div class="timeline-text">
+                        41 years of wisdom, elegance, and life experience.  
+                        You embody grace, inner strength, and inspiring dedication.
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">Motherhood</div>
+                    <div class="timeline-text">
+                        Your greatest achievement is the loving guidance and care  
+                        with which you have raised such a remarkable daughter.  
+                        Her kindness, intelligence, and strength are a true reflection of your values and devotion.
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">Career</div>
+                    <div class="timeline-text">
+                        Your days are filled with moments that show your strength, warmth, and the beauty of a life well lived
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">Future</div>
+                    <div class="timeline-text">
+                        Ahead lie new beautiful chapters, filled with happiness,  
+                        discoveries, and the joy of seeing your family thrive.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <!-- From me -->
+        <div id="contact" class="tab-content">
+            <div class="contact-info">
+                <h2 class="card-title">Words of Gratitude from me</h2>
+                <div class="contact-text">
+                  <p>Dear Ma’am 🌸</p>
+<br>
+<p>On this wonderful day, I would like to extend my warmest wishes to you.  
+May it be filled with happiness, health, and countless pleasant moments.</p>
+<br>
+<p>May the year ahead bring you joy, peace, and many bright days,  
+surrounded by care and love from your family and friends.</p>
+<br>
+<p>With sincere respect and best regards,<br>
+<strong>[I wish a good day for you ma'am always]</strong></p>
+
+                </div>
+                <div style="margin-top: 30px;">
+                    <button class="celebration-button" onclick="sendLove()">💝 Send Love</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Tab switching
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to current tab
+                tab.classList.add('active');
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Create floating elements - sunflowers and earth elements
+        function createFloatingElements() {
+            const elements = ['🌻', '🌿', '✨', '🦋', '🌾', '💫', '🕊️', '🌸'];
+            const container = document.getElementById('floatingElements');
+            
+            setInterval(() => {
+                const element = document.createElement('div');
+                element.className = 'floating-element';
+                element.innerHTML = elements[Math.floor(Math.random() * elements.length)];
+                element.style.left = Math.random() * 100 + '%';
+                element.style.animationDelay = Math.random() * 2 + 's';
+                element.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                container.appendChild(element);
+                
+                setTimeout(() => {
+                    element.remove();
+                }, 10000);
+            }, 3000);
+        }
+
+        // Gift box functionality
+        let giftOpened = false;
+        
+        document.getElementById('giftBox').addEventListener('click', function() {
+            if (!giftOpened) {
+                this.classList.add('opened');
+                giftOpened = true;
+                
+                // Add celebration elements
+                setTimeout(() => {
+                    createGiftExplosion();
+                }, 800);
+            }
+        });
+        
+        function resetGift() {
+            const giftBox = document.getElementById('giftBox');
+            giftBox.classList.remove('opened');
+            giftOpened = false;
+        }
+        
+        function createGiftExplosion() {
+            const confetti = ['🌻', '✨', '🌿', '💖', '🌟', '🦋', '💝', '🌸'];
+            
+            for (let i = 0; i < 25; i++) {
+                setTimeout(() => {
+                    const element = document.createElement('div');
+                    element.style.position = 'fixed';
+                    element.style.left = '50%';
+                    element.style.top = '50%';
+                    element.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+                    element.style.pointerEvents = 'none';
+                    element.style.zIndex = '1002';
+                    element.innerHTML = confetti[Math.floor(Math.random() * confetti.length)];
+                    
+                    const angle = (Math.random() * 360) * (Math.PI / 180);
+                    const distance = Math.random() * 300 + 100;
+                    const duration = Math.random() * 1500 + 1000;
+                    
+                    element.animate([
+                        { 
+                            transform: 'translate(-50%, -50%) scale(0) rotate(0deg)', 
+                            opacity: 1 
+                        },
+                        { 
+                            transform: `translate(${Math.cos(angle) * distance - 50}%, ${Math.sin(angle) * distance - 50}%) scale(1.2) rotate(720deg)`, 
+                            opacity: 0 
+                        }
+                    ], {
+                        duration: duration,
+                        easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                    }).onfinish = () => element.remove();
+                    
+                    document.body.appendChild(element);
+                }, i * 50);
+            }
+            
+            playSound();
+        }
+
+        // Virtual card functionality
+        document.getElementById('virtualCard').addEventListener('click', function() {
+            this.classList.toggle('flipped');
+        });
+
+        // Celebration function
+        function startCelebration() {
+            // Create sunflower celebration
+            const celebrationElements = ['🌻', '✨', '🌿', '🌟', '💖', '🦋', '🌾', '🌸'];
+            
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const element = document.createElement('div');
+                    element.style.position = 'fixed';
+                    element.style.left = Math.random() * 100 + '%';
+                    element.style.top = '100%';
+                    element.style.fontSize = (Math.random() * 2 + 1) + 'rem';
+                    element.style.pointerEvents = 'none';
+                    element.style.zIndex = '1001';
+                    element.innerHTML = celebrationElements[Math.floor(Math.random() * celebrationElements.length)];
+                    
+                    element.animate([
+                        { 
+                            transform: 'translateY(0) rotate(0deg)', 
+                            opacity: 0 
+                        },
+                        { 
+                            transform: 'translateY(-100vh) rotate(360deg)', 
+                            opacity: 1 
+                        }
+                    ], {
+                        duration: Math.random() * 2000 + 2000,
+                        easing: 'ease-out'
+                    }).onfinish = () => element.remove();
+                    
+                    document.body.appendChild(element);
+                }, i * 100);
+            }
+            
+            playSound();
+        }
+
+        // Send love function
+        function sendLove() {
+            const hearts = ['💖', '🌻', '💝', '🌿', '✨', '🦋', '🌾', '🌸'];
+            
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.style.position = 'fixed';
+                    heart.style.left = '50%';
+                    heart.style.top = '50%';
+                    heart.style.fontSize = '2rem';
+                    heart.style.pointerEvents = 'none';
+                    heart.style.zIndex = '1001';
+                    heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                    
+                    const angle = (i / 20) * Math.PI * 2;
+                    const distance = Math.random() * 200 + 100;
+                    
+                    heart.animate([
+                        { 
+                            transform: 'translate(-50%, -50%) scale(0) rotate(0deg)', 
+                            opacity: 1 
+                        },
+                        { 
+                            transform: `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px) scale(1.5) rotate(360deg)`, 
+                            opacity: 0 
+                        }
+                    ], {
+                        duration: 2000,
+                        easing: 'ease-out'
+                    }).onfinish = () => heart.remove();
+                    
+                    document.body.appendChild(heart);
+                }, i * 50);
+            }
+        }
+
+        // Sound generation
+        function playSound() {
+            if (typeof AudioContext !== 'undefined' || typeof webkitAudioContext !== 'undefined') {
+                const audioContext = new (AudioContext || webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.setValueAtTime(523, audioContext.currentTime);
+                oscillator.frequency.setValueAtTime(659, audioContext.currentTime + 0.2);
+                oscillator.frequency.setValueAtTime(784, audioContext.currentTime + 0.4);
+                
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.8);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.8);
+            }
+        }
+
+        // Initialize animations on load
+        window.onload = function() {
+            createFloatingElements();
+            
+            // Gentle welcome with sunflowers
+            setTimeout(() => {
+                const welcomeElements = ['🌻', '✨', '🌿'];
+                for (let i = 0; i < 5; i++) {
+                    setTimeout(() => {
+                        const element = document.createElement('div');
+                        element.style.position = 'fixed';
+                        element.style.left = Math.random() * 100 + '%';
+                        element.style.top = '100%';
+                        element.style.fontSize = '1.5rem';
+                        element.style.pointerEvents = 'none';
+                        element.style.zIndex = '1001';
+                        element.innerHTML = welcomeElements[Math.floor(Math.random() * welcomeElements.length)];
+                        
+                        element.animate([
+                            { transform: 'translateY(0)', opacity: 0 },
+                            { transform: 'translateY(-100vh)', opacity: 1 }
+                        ], {
+                            duration: 4000,
+                            easing: 'ease-out'
+                        }).onfinish = () => element.remove();
+                        
+                        document.body.appendChild(element);
+                    }, i * 300);
+                }
+            }, 1500);
+        };
+    </script>
+</body>
+</html>
